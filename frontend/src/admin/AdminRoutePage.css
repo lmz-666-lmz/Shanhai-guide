@@ -1,0 +1,41 @@
+@import "./AdminSpotPage.css";
+
+.admin-route-spot-list {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+}
+
+.admin-route-spot-row {
+  display: grid;
+  grid-template-columns: 2fr 90px 110px 1fr 64px;
+  gap: 8px;
+  align-items: end;
+  padding: 12px;
+  border: 1px solid #edf1f7;
+  border-radius: 10px;
+  background: #f8fafd;
+}
+
+.admin-route-spot-row button,
+.admin-route-add-spot {
+  height: 34px;
+  border: 1px solid var(--primary-soft);
+  border-radius: 8px;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-route-add-spot {
+  border-style: dashed;
+  background: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .admin-route-spot-row {
+    grid-template-columns: 1fr;
+  }
+}

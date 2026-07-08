@@ -1,0 +1,23 @@
+@import "./AdminSpotPage.css";
+
+.admin-notice-content {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.admin-notice-priority {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: var(--text-sub);
+  font-size: 12px;
+  font-weight: 700;
+}

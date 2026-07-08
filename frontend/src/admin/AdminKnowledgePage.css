@@ -1,0 +1,80 @@
+/* Knowledge Base — uses shared admin styles from AdminSpotPage.css */
+@import "./AdminSpotPage.css";
+
+/* Override: Knowledge-specific adjustments */
+.admin-knowledge-doc-title {
+  max-width: 260px;
+  overflow: hidden;
+  color: var(--text-main);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chunks modal */
+.admin-knowledge-chunks-modal {
+  width: min(840px, 100%);
+}
+
+.admin-knowledge-chunks-body {
+  display: grid;
+  gap: 12px;
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+
+.admin-knowledge-chunk-card {
+  padding: 14px;
+  border: 1px solid #edf1f7;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.admin-knowledge-chunk-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.admin-knowledge-chunk-head h3 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.admin-knowledge-chunk-head span {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-knowledge-chunk-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.admin-knowledge-chunk-meta span {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-knowledge-chunk-card p {
+  margin: 0;
+  color: #475467;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,47 @@
+:root {
+  --sans: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --heading: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  font: 16px/1.5 var(--sans);
+  letter-spacing: 0.01em;
+  color: var(--text-main);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+h1 { font-size: 28px; letter-spacing: -0.5px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+p { margin: 0; }
+
+code {
+  font-family: var(--mono);
+  font-size: 14px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: var(--text-main);
+}
