@@ -1,47 +1,100 @@
-:root {
-  --sans: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
-  --heading: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
-  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font: 16px/1.5 var(--sans);
-  letter-spacing: 0.01em;
-  color: var(--text-main);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
-  margin: 0;
-  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F7F9FC;
+  color: #1e293b;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--heading);
-  font-weight: 700;
-  color: var(--text-main);
-  margin: 0;
+.app-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100dvh;
 }
 
-h1 { font-size: 28px; letter-spacing: -0.5px; }
-h2 { font-size: 20px; }
-h3 { font-size: 16px; }
-p { margin: 0; }
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+}
 
-code {
-  font-family: var(--mono);
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #1a5c8a 0%, #3b82f6 100%);
+  color: #fff;
+  font-weight: 700;
   font-size: 14px;
-  padding: 3px 7px;
-  border-radius: 4px;
-  background: #f1f5f9;
-  color: var(--text-main);
+  border: none;
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+
+.primary-btn:active {
+  transform: scale(0.97);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.safe-bottom {
+  padding-bottom: calc(110px + env(safe-area-inset-bottom));
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.2);
 }

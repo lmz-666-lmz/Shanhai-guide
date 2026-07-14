@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: shanhai-guide
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/shanhai_guide?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    username: your_mysql_username
+    password: your_mysql_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.shanhai.guide.entity
+
+logging:
+  level:
+    com.shanhai.guide: debug
+
+ai:
+  deepseek:
+    api-key: your_deepseek_api_key
+    model: deepseek-chat

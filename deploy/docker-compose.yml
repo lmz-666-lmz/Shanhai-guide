@@ -1,0 +1,57 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: shanhai-guide-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: shanhai_guide
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - shanhai_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+    container_name: shanhai-guide-backend
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/shanhai_guide?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${SHANHAI_DB_PASSWORD:?set SHANHAI_DB_PASSWORD}
+      AI_DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      TZ: Asia/Shanghai
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deploy/frontend.Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080/api}
+    container_name: shanhai-guide-frontend
+    ports:
+      - "5173:80"
+
+  admin-frontend:
+    build:
+      context: ..
+      dockerfile: deploy/admin-frontend.Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080/api}
+    container_name: shanhai-guide-admin
+    ports:
+      - "5174:80"
+
+volumes:
+  shanhai_mysql_data:

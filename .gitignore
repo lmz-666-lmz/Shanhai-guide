@@ -1,44 +1,62 @@
-﻿# dependencies
+# === Node.js dependencies ===
 node_modules/
 frontend/node_modules/
+admin-frontend/node_modules/
+.pnpm-store/
 
-# build outputs
+# === Build output ===
 dist/
 frontend/dist/
+admin-frontend/dist/
+dist-ssr/
+*.tsbuildinfo
+
+# === Uploaded files (keep directory, ignore contents) ===
+uploads/*
+!uploads/.gitkeep
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# === Maven build output ===
 target/
 backend/target/
 
-# env files
-.env
-*.env
-.env.local
-.env.*.local
-frontend/.env
-backend/.env
-
-# IDE
+# === IDE ===
 .idea/
-.vscode/
 *.iml
+.vscode/
 
-# OS
+# === Logs ===
+*.log
+outputs/
+work/
+backend/build_error.txt
+backend/build_output.txt
+
+# === Accidental helper scripts / locks ===
+backend/package-lock.json
+
+# === Environment & secrets (real keys — DO NOT commit) ===
+.env
+.env.local
+*.env.local
+backend/src/main/resources/application.yml
+backend/src/main/resources/application-local.yml
+
+# But allow example/template configs
+!.env.example
+!frontend/.env.example
+!admin-frontend/.env.example
+!backend/src/main/resources/application-example.yml
+
+# === OS files ===
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
 
-# logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# === Test coverage ===
+coverage/
 
-# backups
-frontend_backup*/
-backend_backup*/
-*_backup*/
-frontend_backup_before_*/
-backend_backup_before_*/
-
-# temp
-tmp/
-temp/
-uploads/
+# === Vite cache ===
+.vite/
